@@ -1,0 +1,13 @@
+{
+    "azureFunctions.javaBuildTool": "maven",
+    "azureFunctions.deploySubpath": "target/azure-functions/jolt-20221223155732225",
+    "azureFunctions.projectLanguage": "Java",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "package (functions)",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "cSpell.words": [
+        "chainr"
+    ],
+    "cSpell.language": "en,pt-BR"
+}
