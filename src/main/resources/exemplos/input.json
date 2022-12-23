@@ -1,0 +1,23 @@
+{
+    "naturalPerson": {
+        "name": "Leonardo Referovisky",
+        "birthDate": "12/10/2003",
+        "address": [
+            {
+                "street": "Avenida Paulista",
+                "number": "455",
+                "state": "São Paulo",
+                "zipCode": "06534-029",
+                "country": "Brasil"
+            },
+            {
+                "street": "Skadarlija Street",
+                "number": "235",
+                "state": "Šumadija",
+                "zipCode": "124154325123",
+                "country": "Serbia"
+            }
+        ],
+        "phoneNumber": "11 91234-5678"
+    }
+}

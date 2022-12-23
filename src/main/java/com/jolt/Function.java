@@ -13,13 +13,12 @@ import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
 
 /**
- * Azure Functions with HTTP Trigger.
+ * @author: Leonardo Bezerra
+ * @link: https://github.com/LeonardoBezerraBispo/jolt-azure-function-poc
+ * @since: 23/12/2022
  */
 public class Function {
-    /**
-     * This function listens at endpoint "/api/jolt-poc". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/jolt-poc
-     */
+
     @FunctionName("function-jolt")
     public HttpResponseMessage run(
             @HttpTrigger(
@@ -35,18 +34,27 @@ public class Function {
             return request.createResponseBuilder(HttpStatus.OK)
             .body(transformJSONfromSPEC(request.getBody().orElse("{}"), "/specs/spec.json")).build();
         } catch (Exception e) {
-            context.getLogger().info(e.getMessage().toString());
+            context.getLogger().info(e.getMessage());
             return request.createResponseBuilder(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
-    private Object transformJSONfromSPEC(String json, String specClassPath) {
+
+    /**
+     * Recebe uma String contendo JSON "payload", uma String contendo o path para o arquivo spec JSON "specPath"
+     * e performa a transformação
+     * 
+     * @param payload
+     * @param specPath
+     * @return Object contendo o JSON transformado
+     */
+    private Object transformJSONfromSPEC(String payload, String specPath) {
 
         /*
          * Pegando a list no spec pelo class path definido 
          * no parâmetro "specClassPath" do método
          */
-        List<Object> chainrSpecJSON = JsonUtils.classpathToList(specClassPath);
+        List<Object> chainrSpecJSON = JsonUtils.classpathToList(specPath);
 
         /*
          * Encorrentando operações definidas no spec a partir da lista
@@ -56,7 +64,7 @@ public class Function {
         /*
          * Importando String definido no parâmetro "json" do método 
          */
-        Object inputJSON = JsonUtils.jsonToObject(json);
+        Object inputJSON = JsonUtils.jsonToObject(payload);
 
         /*
          * Executando transformação utilizando json "inputJSON" 

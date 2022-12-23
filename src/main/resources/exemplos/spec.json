@@ -1,0 +1,25 @@
+[
+    {
+      "operation": "shift",
+      "spec": {
+        "naturalPerson": {
+          "name": "PessoaFisica.Nome",
+          "birthDate": "PessoaFisica.DataNascimento",
+          "address": {
+            "*": {
+              "street": "PessoaFisica.Endereco.[&1].Logradouro",
+              "number": "PessoaFisica.Endereco.[&1].Numero",
+              "state": "PessoaFisica.Endereco.[&1].Estado",
+              "zipCode": "PessoaFisica.Endereco.[&1].CEP",
+              "country": "PessoaFisica.Endereco.[&1].Pais"
+            }
+          },
+          "phoneNumber": ["PessoaFisica.NumeroTelefone", "PessoaFisica.NumeroCelular"]
+        }
+      }
+      },
+    {
+      "operation": "sort"
+      }
+    ]
+  
