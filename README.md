@@ -7,6 +7,6 @@ https://docs.digibee.com/documentation/v/pt-br/components/tools/transformer-jolt
 
 https://github.com/bazaarvoice/jolt
 
-Link para executar testes usando input, spec sem precisar debugar no projeto:
+Link para executar testes usando input e spec sem precisar debugar no projeto:
 
 https://jolt-demo.appspot.com
